@@ -1,6 +1,6 @@
 <?php
 
-namespace WEBIZ\LaravelFakturoid;
+namespace Dystcz\LaravelFakturoid;
 
 use Fakturoid\Client as FakturoidClient;
 

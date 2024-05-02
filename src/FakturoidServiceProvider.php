@@ -1,9 +1,9 @@
 <?php
 
-namespace WEBIZ\LaravelFakturoid;
+namespace Dystcz\LaravelFakturoid;
 
 use Illuminate\Support\ServiceProvider;
-use WEBIZ\LaravelFakturoid\LaravelFakturoid;
+use Dystcz\LaravelFakturoid\LaravelFakturoid;
 
 class FakturoidServiceProvider extends ServiceProvider
 {
