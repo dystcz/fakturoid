@@ -1,65 +1,63 @@
 {
-	"name": "dystcz/laravel-fakturoid",
-	"description": "Fakturoid Laravel Wrapper",
-	"keywords": [
-		"webiz",
-		"laravel",
-		"ecommerce",
-		"invoicing"
-	],
-	"homepage": "https://github.com/dystcz/laravel-fakturoid",
-	"license": "MIT",
-	"type": "library",
-	"authors": [
-		{
-			"name": "Dominik Nguyen",
-			"email": "dom@webiz.cz",
-			"role": "Developer"
-		},
-		{
-			"name": "Jakub Theimer",
-			"email": "theimer@madne.st",
-			"role": "Developer"
-		}
-	],
-	"require": {
-		"php": ">=7.3.0",
-		"laravel/framework": "^10.0",
-		"illuminate/support": "^10.0",
-		"fakturoid/fakturoid-php": "^1.0"
-	},
-	"require-dev": {
-		"mockery/mockery": "^1.6",
-		"orchestra/testbench": "^8.0",
-		"phpunit/phpunit": "^10.0"
-	},
-	"autoload": {
-		"psr-4": {
-			"WEBIZ\\LaravelFakturoid\\": "src"
-		}
-	},
-	"autoload-dev": {
-		"psr-4": {
-			"WEBIZ\\LaravelFakturoid\\Tests\\": "tests"
-		}
-	},
-	"minimum-stability": "dev",
-	"prefer-stable": true,
-	"scripts": {
-		"test": "vendor/bin/phpunit",
-		"test-coverage": "vendor/bin/phpunit --coverage-html coverage"
-	},
-	"config": {
-		"sort-packages": true
-	},
-	"extra": {
-		"laravel": {
-			"providers": [
-				"WEBIZ\\LaravelFakturoid\\FakturoidServiceProvider"
-			],
-			"aliases": {
-				"Fakturoid": "WEBIZ\\LaravelFakturoid\\Facade"
-			}
-		}
-	}
+  "name": "dystcz/laravel-fakturoid",
+  "description": "Fakturoid Laravel Wrapper",
+  "keywords": [
+    "dystopia",
+    "laravel",
+    "ecommerce",
+    "invoicing"
+  ],
+  "homepage": "https://github.com/dystcz/laravel-fakturoid",
+  "license": "MIT",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Dominik Nguyen",
+      "email": "dominik@dy.st",
+      "role": "Developer"
+    },
+    {
+      "name": "Jakub Theimer",
+      "email": "jakub@dy.st",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^8.2",
+    "laravel/framework": "^11.0",
+    "illuminate/support": "^11.0",
+    "fakturoid/fakturoid-php": "^1.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^9.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Dystcz\\LaravelFakturoid\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Dystcz\\LaravelFakturoid\\Tests\\": "tests"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "scripts": {
+    "test": "vendor/bin/phpunit",
+    "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Dystcz\\LaravelFakturoid\\FakturoidServiceProvider"
+      ],
+      "aliases": {
+        "Fakturoid": "Dystcz\\LaravelFakturoid\\Facade"
+      }
+    }
+  }
 }
