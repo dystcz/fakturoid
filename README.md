@@ -15,7 +15,7 @@ Simple wrapper for official php package https://github.com/fakturoid/fakturoid-p
 Add the package in your composer.json by executing the command.
 
 ```bash
-composer require dominik-wbz/laravel-fakturoid
+composer require dystcz/laravel-fakturoid
 ```
 
 This will both update composer.json and install the package into the vendor/ directory.
@@ -81,4 +81,4 @@ try {
 
 ## License
 
-Copyright (c) 2019 - 2020 webiz eu s.r.o MIT Licensed.
+Copyright (c) 2019 - 2024 dyst digital s.r.o MIT Licensed.
