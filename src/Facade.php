@@ -1,6 +1,6 @@
 <?php
 
-namespace WEBIZ\LaravelFakturoid;
+namespace Dystcz\LaravelFakturoid;
 
 use Illuminate\Support\Facades\Facade as LaravelFacade;
 
