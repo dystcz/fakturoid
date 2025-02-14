@@ -6,9 +6,6 @@ use BadMethodCallException;
 use Dystcz\Fakturoid\Contracts\Fakturoid as FakturoidContract;
 use Fakturoid\Exception\AuthorizationFailedException;
 use Fakturoid\FakturoidManager;
-use GuzzleHttp\Client as Guzzle;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Config;
 
 /**
  * @method void setAccountSlug(string $companySlug)
@@ -40,21 +37,11 @@ use Illuminate\Support\Facades\Config;
  */
 class Fakturoid implements FakturoidContract
 {
-    protected FakturoidManager $fakturoid;
-
     /**
      * @throws AuthorizationFailedException
      */
-    public function __construct()
+    public function __construct(protected FakturoidManager $fakturoid)
     {
-        $this->fakturoid = App::make(FakturoidManager::class, [
-            'client' => new Guzzle,
-            'clientId' => Config::get('fakturoid.client_id'),
-            'clientSecret' => Config::get('fakturoid.client_secret'),
-            'userAgent' => Config::get('fakturoid.user_agent'),
-            'accountSlug' => Config::get('fakturoid.account_slug'),
-        ]);
-
         $this->fakturoid->authClientCredentials();
     }
 
