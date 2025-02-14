@@ -1,4 +1,4 @@
-# Laravel Fakturoid
+# Fakturoid for Laravel
 
 Simple wrapper for official php package https://github.com/fakturoid/fakturoid-php
 
