@@ -2,6 +2,7 @@
 
 namespace Dystcz\Fakturoid\Facades;
 
+use Dystcz\Fakturoid\Contracts\Fakturoid as FakturoidContract;
 use Illuminate\Support\Facades\Facade as LaravelFacade;
 
 /**
@@ -41,6 +42,6 @@ class Fakturoid extends LaravelFacade
      */
     protected static function getFacadeAccessor()
     {
-        return 'laravel-fakturoid';
+        return FakturoidContract::class;
     }
 }
