@@ -6,19 +6,13 @@ use Dystcz\Fakturoid\Fakturoid;
 use Dystcz\Fakturoid\Tests\TestCase;
 use Fakturoid\Auth\CredentialCallback;
 use Fakturoid\Auth\Credentials;
-use Fakturoid\Dispatcher;
 use Fakturoid\Enum\AuthTypeEnum;
 use Fakturoid\FakturoidManager;
-use Fakturoid\Provider\AccountProvider;
 
 uses(TestCase::class);
 
 it('forwards calls to FakturoidManager', function (string $method, array $params = []) {
     /** @var TestCase $this */
-    // $dispatcher = Mockery::mock(Dispatcher::class);
-    //
-    // $accountProvider = Mockery::mock(new AccountProvider($dispatcher));
-
     $fakturoidManager = Mockery::mock(FakturoidManager::class);
 
     $this->app->instance('fakturoid', $fakturoidManager);
