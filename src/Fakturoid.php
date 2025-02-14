@@ -3,40 +3,42 @@
 namespace Dystcz\Fakturoid;
 
 use BadMethodCallException;
+use Dystcz\Fakturoid\Contracts\Fakturoid as FakturoidContract;
 use Fakturoid\Exception\AuthorizationFailedException;
 use Fakturoid\FakturoidManager;
 use GuzzleHttp\Client as Guzzle;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
 
 /**
- * @method static void setAccountSlug(string $companySlug)
- * @method static \Fakturoid\Auth\AuthProvider getAuthProvider()
- * @method static string getAuthenticationUrl()
- * @method static void requestCredentials(string $code)
- * @method static \Fakturoid\Auth\Credentials|null getCredentials()
- * @method static void setCredentials(\Fakturoid\Auth\Credentials $credentials)
- * @method static void setCredentialsCallback(\Fakturoid\Auth\CredentialCallback $callback)
- * @method static void authClientCredentials()
- * @method static \Fakturoid\Dispatcher getDispatcher()
- * @method static \Fakturoid\Provider\AccountProvider getAccountProvider()
- * @method static \Fakturoid\Provider\BankAccountsProvider getBankAccountsProvider()
- * @method static \Fakturoid\Provider\EventsProvider getEventsProvider()
- * @method static \Fakturoid\Provider\ExpensesProvider getExpensesProvider()
- * @method static \Fakturoid\Provider\GeneratorsProvider getGeneratorsProvider()
- * @method static \Fakturoid\Provider\InboxFilesProvider getInboxFilesProvider()
- * @method static \Fakturoid\Provider\InventoryItemsProvider getInventoryItemsProvider()
- * @method static \Fakturoid\Provider\InventoryMovesProvider getInventoryMovesProvider()
- * @method static \Fakturoid\Provider\InvoicesProvider getInvoicesProvider()
- * @method static \Fakturoid\Provider\NumberFormatsProvider getNumberFormatsProvider()
- * @method static \Fakturoid\Provider\RecurringGeneratorsProvider getRecurringGeneratorsProvider()
- * @method static \Fakturoid\Provider\SubjectsProvider getSubjectsProvider()
- * @method static \Fakturoid\Provider\TodosProvider getTodosProvider()
- * @method static \Fakturoid\Provider\UsersProvider getUsersProvider()
- * @method static \Fakturoid\Provider\WebhooksProvider getWebhooksProvider()
+ * @method void setAccountSlug(string $companySlug)
+ * @method \Fakturoid\Auth\AuthProvider getAuthProvider()
+ * @method string getAuthenticationUrl()
+ * @method void requestCredentials(string $code)
+ * @method \Fakturoid\Auth\Credentials|null getCredentials()
+ * @method void setCredentials(\Fakturoid\Auth\Credentials $credentials)
+ * @method void setCredentialsCallback(\Fakturoid\Auth\CredentialCallback $callback)
+ * @method void authClientCredentials()
+ * @method \Fakturoid\Dispatcher getDispatcher()
+ * @method \Fakturoid\Provider\AccountProvider getAccountProvider()
+ * @method \Fakturoid\Provider\BankAccountsProvider getBankAccountsProvider()
+ * @method \Fakturoid\Provider\EventsProvider getEventsProvider()
+ * @method \Fakturoid\Provider\ExpensesProvider getExpensesProvider()
+ * @method \Fakturoid\Provider\GeneratorsProvider getGeneratorsProvider()
+ * @method \Fakturoid\Provider\InboxFilesProvider getInboxFilesProvider()
+ * @method \Fakturoid\Provider\InventoryItemsProvider getInventoryItemsProvider()
+ * @method \Fakturoid\Provider\InventoryMovesProvider getInventoryMovesProvider()
+ * @method \Fakturoid\Provider\InvoicesProvider getInvoicesProvider()
+ * @method \Fakturoid\Provider\NumberFormatsProvider getNumberFormatsProvider()
+ * @method \Fakturoid\Provider\RecurringGeneratorsProvider getRecurringGeneratorsProvider()
+ * @method \Fakturoid\Provider\SubjectsProvider getSubjectsProvider()
+ * @method \Fakturoid\Provider\TodosProvider getTodosProvider()
+ * @method \Fakturoid\Provider\UsersProvider getUsersProvider()
+ * @method \Fakturoid\Provider\WebhooksProvider getWebhooksProvider()
  *
  * @see \Fakturoid\FakturoidManager
  */
-class Fakturoid
+class Fakturoid implements FakturoidContract
 {
     protected FakturoidManager $fakturoid;
 
@@ -45,13 +47,13 @@ class Fakturoid
      */
     public function __construct()
     {
-        $this->fakturoid = new FakturoidManager(
-            client: new Guzzle,
-            clientId: Config::get('fakturoid.account_api_id'),
-            clientSecret: Config::get('fakturoid.account_api_secret'),
-            userAgent: Config::get('fakturoid.user_agent'),
-            accountSlug: Config::get('fakturoid.account_slug'),
-        );
+        $this->fakturoid = App::make(FakturoidManager::class, [
+            'client' => new Guzzle,
+            'clientId' => Config::get('fakturoid.client_id'),
+            'clientSecret' => Config::get('fakturoid.client_secret'),
+            'userAgent' => Config::get('fakturoid.user_agent'),
+            'accountSlug' => Config::get('fakturoid.account_slug'),
+        ]);
 
         $this->fakturoid->authClientCredentials();
     }
