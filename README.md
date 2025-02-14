@@ -15,7 +15,7 @@ Simple wrapper for official php package https://github.com/fakturoid/fakturoid-p
 Add the package in your composer.json by executing the command.
 
 ```bash
-composer require dystcz/laravel-fakturoid
+composer require dystcz/fakturoid
 ```
 
 This will both update composer.json and install the package into the vendor/ directory.
@@ -34,10 +34,10 @@ With this command, initialize the configuration and modify the created file, loc
 
 ```php
 return [
-    'account_name' => env('FAKTUROID_NAME', 'XXX'),
-    'account_email' => env('FAKTUROID_EMAIL', 'XXX'),
-    'account_api_key' => env('FAKTUROID_API_KEY', 'XXX'),
-    'app_contact' => env('FAKTUROID_APP_CONTACT', 'Application <your@email.cz>'),
+    'account_api_id' => env('FAKTUROID_API_ID', 'XXX'),
+    'account_api_secret' => env('FAKTUROID_API_SECRET', 'XXX'),
+    'account_slug' => env('FAKTUROID_ACCOUNT_SLUG'),
+    'user_agent' => env('FAKTUROID_USER_AGENT', 'Application <your@email.cz>'),
 ];
 ```
 
@@ -47,7 +47,7 @@ return [
 
 ```php
 
-use Fakturoid;
+use Dystcz\Fakturoid\Facades\Fakturoid;
 
 try {
     // create subject
