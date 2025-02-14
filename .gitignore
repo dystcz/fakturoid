@@ -1,9 +1,8 @@
+.env
+.env.testing
 build
 vendor
-tests/TestSupport/temp
-tests/temp
-phpunit.xml
-.env
 .phpunit.result.cache
 .php_cs.cache
 .phpactor.json
+.phpunit.cache
