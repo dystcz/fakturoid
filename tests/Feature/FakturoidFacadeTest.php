@@ -6,7 +6,7 @@ use Dystcz\Fakturoid\Tests\TestCase;
 
 uses(TestCase::class);
 
-it('can call Fakturoid', function (string $method) {
+it('forwards calls from facade', function (string $method) {
     /** @var TestCase $this */
     $fakturoid = $this->mock(FakturoidContract::class);
 
