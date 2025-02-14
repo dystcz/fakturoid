@@ -81,4 +81,4 @@ try {
 
 ## License
 
-Copyright (c) 2019 - 2024 dyst digital s.r.o MIT Licensed.
+Copyright (c) 2019 - 2025 dyst digital s.r.o MIT Licensed.
