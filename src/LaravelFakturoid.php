@@ -3,6 +3,7 @@
 namespace Dystcz\LaravelFakturoid;
 
 use Fakturoid\Client as FakturoidClient;
+use Illuminate\Support\Facades\Config;
 
 class LaravelFakturoid
 {
@@ -11,10 +12,10 @@ class LaravelFakturoid
     public function __construct()
     {
         $this->fakturoid = new FakturoidClient(
-            config('fakturoid.account_name'),
-            config('fakturoid.account_email'),
-            config('fakturoid.account_api_key'),
-            config('fakturoid.app_contact')
+            Config::get('fakturoid.account_name'),
+            Config::get('fakturoid.account_email'),
+            Config::get('fakturoid.account_api_key'),
+            Config::get('fakturoid.app_contact')
         );
     }
 
