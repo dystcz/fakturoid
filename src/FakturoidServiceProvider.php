@@ -2,7 +2,7 @@
 
 namespace Dystcz\Fakturoid;
 
-use Dystcz\Fakturoid\Facades\Fakturoid as FakturoidFacade;
+use Dystcz\Fakturoid\Contracts\Fakturoid as FakturoidContract;
 use Illuminate\Support\ServiceProvider;
 
 class FakturoidServiceProvider extends ServiceProvider
@@ -28,8 +28,6 @@ class FakturoidServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/fakturoid.php', 'fakturoid');
 
-        $this->app->singleton('laravel-fakturoid', function () {
-            return new FakturoidFacade;
-        });
+        $this->app->singleton(FakturoidContract::class, fn () => new Fakturoid);
     }
 }
