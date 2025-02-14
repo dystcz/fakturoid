@@ -3,7 +3,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/dystcz/fakturoid.svg?style=flat-square)](https://packagist.org/packages/dystcz/fakturoid)
 [![Total Downloads](https://img.shields.io/packagist/dt/dystcz/fakturoid.svg?style=flat-square)](https://packagist.org/packages/dystcz/fakturoid)
 
-[![Tests](https://github.com/dystcz/fakturoid/actions/workflows/tests.yaml/badge.svg)](https://github.com/dystcz/fakturoid/actions/workflows/tests.yaml)
+[![Tests](https://github.com/dystcz/fakturoid/actions/workflows/test.yaml/badge.svg)](https://github.com/dystcz/fakturoid/actions/workflows/test.yaml)
 
 Simple wrapper for official php package https://github.com/fakturoid/fakturoid-php
 
