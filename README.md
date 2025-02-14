@@ -50,19 +50,17 @@ return [
 ### Create Subject, Create Invoice, Send Invoice
 
 ```php
-
 use Dystcz\Fakturoid\Facades\Fakturoid;
 
 try {
     // create subject
-    $subject = Fakturoid::createSubject(array(
+    $response = Fakturoid::getSubjectsProvider()->create([
         'name' => 'Firma s.r.o.',
         'email' => 'aloha@pokus.cz'
-    ));
-    if ($subject->getBody()) {
-        $subject = $subject->getBody();
+    ]);
 
-        // create invoice with lines
+    if ($subject = $response->getBody()) {
+        // Create invoice with lines
         $lines = [
             [
                 'name' => 'Big sale',
@@ -71,17 +69,30 @@ try {
             ],
         ];
 
-        $invoice = Fakturoid::createInvoice(array('subject_id' => $subject->id, 'lines' => $lines));
-        $invoice = $invoice->getBody();
+        $invoiceProvider = Fakturoid::getInvoicesProvider();
 
-        // send created invoice
-        Fakturoid::fireInvoice($invoice->id, 'deliver');
+        $response = Fakturoid::getInvoicesProvider()->create([
+            'subject_id' => $subject->id,
+            'lines' => $lines
+        ]);
+
+        $invoice = $response->getBody();
+
+        // Send created invoice
+        $invoiceProvider->fireAction($invoice->id, 'deliver');
     }
 } catch (\Exception $e) {
     dd($e->getCode() . ": " . $e->getMessage());
 }
-
 ```
+
+### More examples
+
+For more examples, please visit the [Fakturoid documentation](https://github.com/fakturoid/fakturoid-php?tab=readme-ov-file#usage).
+
+## Credits
+
+- Fakturoid s.r.o. [fakturoid-php](https://github.com/fakturoid/fakturoid-php) for the underlying package.
 
 ## License
 
