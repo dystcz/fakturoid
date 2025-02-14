@@ -15,9 +15,9 @@ uses(TestCase::class);
 
 it('forwards calls to FakturoidManager', function (string $method, array $params = []) {
     /** @var TestCase $this */
-    $dispatcher = Mockery::mock(Dispatcher::class);
-
-    $accountProvider = Mockery::mock(new AccountProvider($dispatcher));
+    // $dispatcher = Mockery::mock(Dispatcher::class);
+    //
+    // $accountProvider = Mockery::mock(new AccountProvider($dispatcher));
 
     $fakturoidManager = Mockery::mock(FakturoidManager::class);
 
@@ -47,21 +47,21 @@ it('forwards calls to FakturoidManager', function (string $method, array $params
             public function __invoke(?Credentials $credentials = null): void {}
         },
     ]],
-    // ['authClientCredentials'],
-    // ['getDispatcher'],
-    // ['getAccountProvider'],
-    // ['getBankAccountsProvider'],
-    // ['getEventsProvider'],
-    // ['getExpensesProvider'],
-    // ['getGeneratorsProvider'],
-    // ['getInboxFilesProvider'],
-    // ['getInventoryItemsProvider'],
-    // ['getInventoryMovesProvider'],
-    // ['getInvoicesProvider'],
-    // ['getNumberFormatsProvider'],
-    // ['getRecurringGeneratorsProvider'],
-    // ['getSubjectsProvider'],
-    // ['getTodosProvider'],
-    // ['getUsersProvider'],
-    // ['getWebhooksProvider'],
+    ['authClientCredentials'],
+    ['getDispatcher'],
+    ['getAccountProvider'],
+    ['getBankAccountsProvider'],
+    ['getEventsProvider'],
+    ['getExpensesProvider'],
+    ['getGeneratorsProvider'],
+    ['getInboxFilesProvider'],
+    ['getInventoryItemsProvider'],
+    ['getInventoryMovesProvider'],
+    ['getInvoicesProvider'],
+    ['getNumberFormatsProvider'],
+    ['getRecurringGeneratorsProvider'],
+    ['getSubjectsProvider'],
+    ['getTodosProvider'],
+    ['getUsersProvider'],
+    ['getWebhooksProvider'],
 ]);
