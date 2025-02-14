@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LaravelFakturoid;
+namespace Dystcz\Fakturoid;
 
-use Dystcz\LaravelFakturoid\Facades\Fakturoid as FakturoidFacade;
+use Dystcz\Fakturoid\Facades\Fakturoid as FakturoidFacade;
 use Illuminate\Support\ServiceProvider;
 
 class FakturoidServiceProvider extends ServiceProvider
