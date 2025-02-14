@@ -1,13 +1,14 @@
 {
-  "name": "dystcz/laravel-fakturoid",
-  "description": "Fakturoid Laravel Wrapper",
+  "name": "dystcz/fakturoid",
+  "description": "Laravel wrapper for Fakturoid",
   "keywords": [
     "dystopia",
     "laravel",
+    "fakturoid",
     "ecommerce",
     "invoicing"
   ],
-  "homepage": "https://github.com/dystcz/laravel-fakturoid",
+  "homepage": "https://github.com/dystcz/fakturoid",
   "license": "MIT",
   "type": "library",
   "authors": [
@@ -26,19 +27,27 @@
     "php": "^8.2",
     "laravel/framework": "^11.0",
     "illuminate/support": "^11.0",
-    "fakturoid/fakturoid-php": "^1.0"
+    "fakturoid/fakturoid-php": "^3.0"
   },
   "require-dev": {
-    "orchestra/testbench": "^9.0"
+    "mockery/mockery": "^1.5",
+    "orchestra/testbench": "^9.0",
+    "larastan/larastan": "^3.0",
+    "laravel/pint": "^1.7",
+    "pestphp/pest": "^2.0",
+    "pestphp/pest-plugin-arch": "^2.0",
+    "pestphp/pest-plugin-faker": "^2.0",
+    "pestphp/pest-plugin-laravel": "^2.0",
+    "spatie/laravel-ray": "^1.32"
   },
   "autoload": {
     "psr-4": {
-      "Dystcz\\LaravelFakturoid\\": "src"
+      "Dystcz\\Fakturoid\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Dystcz\\LaravelFakturoid\\Tests\\": "tests"
+      "Dystcz\\Fakturoid\\Tests\\": "tests"
     }
   },
   "minimum-stability": "dev",
@@ -53,7 +62,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Dystcz\\LaravelFakturoid\\FakturoidServiceProvider"
+        "Dystcz\\Fakturoid\\FakturoidServiceProvider"
       ],
       "aliases": {
         "Fakturoid": "Dystcz\\LaravelFakturoid\\Facade"
