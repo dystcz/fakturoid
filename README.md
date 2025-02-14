@@ -1,5 +1,10 @@
 # Fakturoid for Laravel
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/dystcz/fakturoid.svg?style=flat-square)](https://packagist.org/packages/dystcz/fakturoid)
+[![Total Downloads](https://img.shields.io/packagist/dt/dystcz/fakturoid.svg?style=flat-square)](https://packagist.org/packages/dystcz/fakturoid)
+
+[![Tests](https://github.com/dystcz/fakturoid/actions/workflows/tests.yaml/badge.svg)](https://github.com/dystcz/fakturoid/actions/workflows/tests.yaml)
+
 Simple wrapper for official php package https://github.com/fakturoid/fakturoid-php
 
 ### Docs
@@ -34,8 +39,8 @@ With this command, initialize the configuration and modify the created file, loc
 
 ```php
 return [
-    'account_api_id' => env('FAKTUROID_API_ID', 'XXX'),
-    'account_api_secret' => env('FAKTUROID_API_SECRET', 'XXX'),
+    'client_id' => env('FAKTUROID_CLIENT_ID', 'XXX'),
+    'client_secret' => env('FAKTUROID_CLIENT_SECRET', 'XXX'),
     'account_slug' => env('FAKTUROID_ACCOUNT_SLUG'),
     'user_agent' => env('FAKTUROID_USER_AGENT', 'Application <your@email.cz>'),
 ];
