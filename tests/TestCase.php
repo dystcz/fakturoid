@@ -23,7 +23,7 @@ abstract class TestCase extends OrchestraTestCase
     protected function getPackageProviders($app): array
     {
         return [
-            //
+            \Dystcz\Fakturoid\FakturoidServiceProvider::class,
         ];
     }
 
