@@ -2,8 +2,8 @@
 
 namespace Dystcz\LaravelFakturoid;
 
+use Dystcz\LaravelFakturoid\Facades\Fakturoid as FakturoidFacade;
 use Illuminate\Support\ServiceProvider;
-use Dystcz\LaravelFakturoid\LaravelFakturoid;
 
 class FakturoidServiceProvider extends ServiceProvider
 {
@@ -14,7 +14,7 @@ class FakturoidServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/fakturoid.php' => config_path('fakturoid.php'),
+                __DIR__.'/../config/fakturoid.php' => config_path('fakturoid.php'),
             ], 'config');
         }
     }
@@ -26,12 +26,10 @@ class FakturoidServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__ . '/../config/fakturoid.php', 'fakturoid');
+        $this->mergeConfigFrom(__DIR__.'/../config/fakturoid.php', 'fakturoid');
 
-        // Register the main class to use with the facade
         $this->app->singleton('laravel-fakturoid', function () {
-            return new LaravelFakturoid;
+            return new FakturoidFacade;
         });
     }
 }
